@@ -103,4 +103,20 @@ public class StagePfeService {
             stagePfe.setEncadrantAcademique(encadrantAcademique);
         }
     }
+    
+    public List<StagePfe> search(Long filiereId, Integer annee) {
+        if (filiereId != null && annee != null) {
+            return stagePfeRepository.findByEtudiantFiliereIdAndAnnee(filiereId, annee);
+        }
+
+        if (filiereId != null) {
+            return stagePfeRepository.findByEtudiantFiliereId(filiereId);
+        }
+
+        if (annee != null) {
+            return stagePfeRepository.findByAnnee(annee);
+        }
+
+        return stagePfeRepository.findAll();
+    }
 }
