@@ -1,37 +1,71 @@
 # Gestion PFE
 
-Application backend JEE/Spring Boot pour la gestion des stages de Projet de Fin d'Etudes (PFE).  
-Le projet expose une API REST permettant de gerer les filieres, les etudiants, les entreprises, les encadrants, les responsables de filiere et les stages PFE.
+Application full-stack pour la gestion des stages de Projet de Fin d'Etudes (PFE).
 
-## Technologies utilisees
+Le projet contient un backend Spring Boot qui expose une API REST et un frontend React.js qui consomme cette API.
+
+## Technologies utilisées
+
+### Backend
 
 - Java 17
-- Spring Boot 4.0.6
+- Spring Boot
 - Spring Web MVC
 - Spring Data JPA
-- MySQL
 - Maven
 - Lombok
+
+### Frontend
+
+- React.js
+- JavaScript
+- HTML
+- CSS
+- npm
+
+### Base de données
+
+- MySQL
+
+## Fonctionnalités
+
+- Gestion des filières.
+- Gestion des étudiants et rattachement à une filière.
+- Gestion des entreprises.
+- Gestion des encadrants académiques.
+- Gestion des encadrants d'entreprise.
+- Gestion des responsables de filière.
+- Gestion des stages PFE.
+- Recherche des étudiants par filière.
+- Recherche des stages par année.
+- Recherche des stages par filière.
+- Recherche des encadrants d'entreprise par entreprise.
 
 ## Structure du projet
 
 ```text
 gestion-pfe/
-├── src/
-│   ├── main/
-│   │   ├── java/com/jee/gestionpfe/
-│   │   │   ├── controllers/      # Controleurs REST
-│   │   │   ├── entities/         # Entites JPA
-│   │   │   ├── repositories/     # Repositories Spring Data JPA
-│   │   │   ├── services/         # Logique metier
-│   │   │   └── GestionPfeApplication.java
-│   │   └── resources/
-│   │       └── application.properties
-│   └── test/
-│       └── java/com/jee/gestionpfe/
-├── pom.xml
-├── mvnw
-└── mvnw.cmd
+├── backend/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/jee/gestionpfe/
+│   │   │   │   ├── controllers/
+│   │   │   │   ├── entities/
+│   │   │   │   ├── repositories/
+│   │   │   │   ├── services/
+│   │   │   │   └── GestionPfeApplication.java
+│   │   │   └── resources/
+│   │   │       └── application.properties
+│   │   └── test/
+│   ├── pom.xml
+│   ├── mvnw
+│   └── mvnw.cmd
+│
+└── frontend/
+    ├── src/
+    ├── public/
+    ├── package.json
+    └── package-lock.json
 ```
 
 ## Fonctionnalites
@@ -121,6 +155,10 @@ gestion-pfe/
 - `encadrantEntreprise`
 - `encadrantAcademique`
 
+## Configuration de la base de données
+
+src/main/resources/application.properties
+
 ## Installation et lancement
 
 ### 1. Cloner le depot
@@ -128,6 +166,7 @@ gestion-pfe/
 ```bash
 git clone https://github.com/FA-fh/gestion-pfe.git
 cd gestion-pfe
+cd backend
 ```
 
 ### 2. Verifier les prerequis
@@ -139,7 +178,7 @@ mvn -version
 
 Le projet utilise Java 17.
 
-### 3. Lancer l'application
+### 3. Lancer le backend Spring Boot
 
 Avec Maven installe :
 
@@ -163,3 +202,30 @@ L'application demarre sur :
 
 ```text
 http://localhost:8080
+```
+
+### 4. Lancer le frontend React.js
+
+```bash
+git clone https://github.com/FA-fh/gestion-pfe.git
+cd gestion-pfe
+cd frontend
+```
+
+```bash
+npm install
+npm start
+npm run dev
+```
+
+Le frontend démarre généralement sur :
+
+```text
+http://localhost:3000
+```
+
+Ou 
+
+```text
+http://localhost:5173
+```
